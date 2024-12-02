@@ -18,8 +18,8 @@ export class EditProductComponent  implements OnInit {
     id: new FormControl(''),
     image: new FormControl(''),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    userName: new FormControl(''), // Nuevo campo
-    description: new FormControl('', [Validators.required, Validators.minLength(10)]), // Nuevo campo
+    userName: new FormControl(''), 
+    description: new FormControl('', [Validators.required, Validators.minLength(10)]),
   });
   
 
@@ -43,7 +43,7 @@ export class EditProductComponent  implements OnInit {
 
   // ==== Tomar/Seleccionar una imagen ====
   async takeImage() {
-    const dataUrl = (await this.utilsSvc.takePicture('Imagen de la pizza'))
+    const dataUrl = (await this.utilsSvc.takePicture('Imagen'))
       .dataUrl;
     this.form.controls.image.setValue(dataUrl);
   }
@@ -83,7 +83,7 @@ export class EditProductComponent  implements OnInit {
       // Mostrar un mensaje de éxito
       this.utilsSvc.dismissModal({ success: true });
       this.utilsSvc.presentToast({
-        message: 'Pizza añadida exitosamente',
+        message: 'Foto añadida exitosamente',
         duration: 1500,
         color: 'success',
         position: 'middle',
@@ -92,7 +92,7 @@ export class EditProductComponent  implements OnInit {
     } catch (error) {
       console.error('Error al crear el producto:', error);
       this.utilsSvc.presentToast({
-        message: error.message || 'Ocurrió un error al añadir el producto',
+        message: error.message || 'Ocurrió un error al añadir la foto',
         duration: 2500,
         color: 'danger',
         position: 'middle',
@@ -129,7 +129,7 @@ export class EditProductComponent  implements OnInit {
       .then(async () => {
         this.utilsSvc.dismissModal({ success: true });
         this.utilsSvc.presentToast({
-          message: 'Pizza actualizada exitosamente',
+          message: 'Foto actualizada exitosamente',
           duration: 1500,
           color: 'success',
           position: 'middle',
@@ -183,17 +183,17 @@ export class EditProductComponent  implements OnInit {
       // Mostrar un mensaje de éxito
       this.utilsSvc.dismissModal({ success: true });
       this.utilsSvc.presentToast({
-        message: 'Producto actualizado exitosamente.',
+        message: 'Foto actualizada exitosamente.',
         duration: 1500,
         color: 'success',
         position: 'middle',
         icon: 'checkmark-circle-outline',
       });
     } catch (error) {
-      console.error('Error al actualizar el producto:', error);
+      console.error('Error al actualizar la foto:', error);
       // Mostrar un mensaje de error
       this.utilsSvc.presentToast({
-        message: error.message || 'Ocurrió un error al actualizar el producto.',
+        message: error.message || 'Ocurrió un error al actualizar la foto.',
         duration: 2500,
         color: 'danger',
         position: 'middle',

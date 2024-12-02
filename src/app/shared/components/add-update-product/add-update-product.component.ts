@@ -42,7 +42,7 @@ export class AddUpdateProductComponent implements OnInit {
 
   // ==== Tomar/Seleccionar una imagen ====
   async takeImage() {
-    const dataUrl = (await this.utilsSvc.takePicture('Imagen de la pizza'))
+    const dataUrl = (await this.utilsSvc.takePicture('Imagen'))
       .dataUrl;
     this.form.controls.image.setValue(dataUrl);
   }
@@ -58,7 +58,7 @@ export class AddUpdateProductComponent implements OnInit {
 
   //==== Crear un producto ======
   async createProduct() {
-    const path = `products`; // Colección global para los productos
+    const path = `products`;
     const loading = await this.utilsSvc.loading();
     await loading.present();
   
@@ -72,8 +72,8 @@ export class AddUpdateProductComponent implements OnInit {
         ...this.form.value,
         userId: this.user.uid,
         userName: this.user.name,
-        userEmail: this.user.email, // Incluye el correo del usuario
-        description: this.form.value.description || '', // Agregar descripción
+        userEmail: this.user.email, 
+        description: this.form.value.description || '', 
       };
       delete productData.id;
   
@@ -81,16 +81,16 @@ export class AddUpdateProductComponent implements OnInit {
   
       this.utilsSvc.dismissModal({ success: true });
       this.utilsSvc.presentToast({
-        message: 'Pizza añadida exitosamente',
+        message: 'Foto añadida exitosamente',
         duration: 1500,
         color: 'success',
         position: 'middle',
         icon: 'checkmark-circle-outline',
       });
     } catch (error) {
-      console.error('Error al crear el producto:', error);
+      console.error('Error al crear la foto:', error);
       this.utilsSvc.presentToast({
-        message: error.message || 'Ocurrió un error al añadir el producto',
+        message: error.message || 'Ocurrió un error al añadir la foto',
         duration: 2500,
         color: 'danger',
         position: 'middle',
@@ -128,7 +128,7 @@ export class AddUpdateProductComponent implements OnInit {
       .then(async () => {
         this.utilsSvc.dismissModal({ success: true });
         this.utilsSvc.presentToast({
-          message: 'Pizza actualizada exitosamente',
+          message: 'Foto actualizada exitosamente',
           duration: 1500,
           color: 'success',
           position: 'middle',
@@ -182,17 +182,17 @@ export class AddUpdateProductComponent implements OnInit {
       // Mostrar un mensaje de éxito
       this.utilsSvc.dismissModal({ success: true });
       this.utilsSvc.presentToast({
-        message: 'Producto actualizado exitosamente.',
+        message: 'Foto actualizada exitosamente.',
         duration: 1500,
         color: 'success',
         position: 'middle',
         icon: 'checkmark-circle-outline',
       });
     } catch (error) {
-      console.error('Error al actualizar el producto:', error);
+      console.error('Error al actualizar la foto:', error);
       // Mostrar un mensaje de error
       this.utilsSvc.presentToast({
-        message: error.message || 'Ocurrió un error al actualizar el producto.',
+        message: error.message || 'Ocurrió un error al actualizar la foto.',
         duration: 2500,
         color: 'danger',
         position: 'middle',
