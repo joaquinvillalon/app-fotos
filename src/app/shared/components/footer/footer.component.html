@@ -1,0 +1,36 @@
+<ion-footer class="ion-no-border footer">
+  <div>
+    <ion-row>
+      <ion-col>
+        <!-- ==== Registro ==== -->
+        <ion-button
+          (click)="navigate('/auth/register')"
+          expand="block"
+          shape="round"
+          color="primary"
+          class="buttoncolors text-focus-in"
+        >
+          Crear una cuenta
+          <ion-icon
+            slot="start"
+            class="icon"
+            name="person-circle-outline"
+          ></ion-icon>
+        </ion-button>
+      </ion-col>
+      <!-- ==== Iniciar sesion ==== -->
+      <ion-col>
+        <ion-button
+          (click)="navigate('/auth')"
+          expand="block"
+          shape="round"
+          color="primary"
+          class="buttoncolors text-focus-in"
+        >
+          Iniciar sesión
+          <ion-icon slot="end" class="icon" name="log-in-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-footer>

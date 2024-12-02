@@ -1,0 +1,80 @@
+<app-header title="Iniciar Sesión"></app-header>
+
+<ion-content>
+  <app-logo></app-logo>
+  <div class="d-flex-center">
+    <form
+      [formGroup]="form"
+      class="auth-form"
+      (ngSubmit)="submit()"
+      (keypress.enter)="submit()"
+    >
+      <!-- ======Email====== -->
+      <app-custom-input
+        autocomplete="email"
+        [control]="form.controls.email"
+        icon="mail-outline"
+        type="email"
+        label="Email"
+      ></app-custom-input>
+      <!-- ======Email Validator====== -->
+      <div
+        class="validators"
+        *ngIf="form.controls.email.errors && form.controls.email.touched"
+      >
+        <div *ngIf="form.controls.email.errors?.['required']">
+          El correo es requerido
+        </div>
+        <div *ngIf="form.controls.email.errors?.['email']">
+          Ingrese un correo valido
+        </div>
+      </div>
+
+      <!-- ====== Contraseña ====== -->
+      <app-custom-input
+        autocomplete="password"
+        [control]="form.controls.password"
+        icon="key-outline"
+        type="password"
+        label="Contraseña"
+      ></app-custom-input>
+      <!-- ======Contraseña Validator====== -->
+      <div
+        class="validators"
+        *ngIf="form.controls.password.errors && form.controls.password.touched"
+      >
+        <div *ngIf="form.controls.password.errors?.['required']">
+          La Contraseña es requerida
+        </div>
+      </div>
+      <!-- ======Recovery option====== -->
+      <p class="ion-text-end" routerLink="recovery">Olvidaste tu Contraseña?</p>
+
+      <!-- ======Login Option====== -->
+      <ion-button
+        expand="block"
+        mode="ios"
+        class="submit"
+        type="submit"
+        [disabled]="form.invalid"
+        shape="round"
+      >
+        Ingresar
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      </ion-button>
+
+      <!-- ======Register Option====== -->
+      <ion-button
+        expand="block"
+        mode="ios"
+        routerLink="register"
+        class="ion-margin-top"
+        fill="outline"
+        shape="round"
+      >
+        Registrate
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
