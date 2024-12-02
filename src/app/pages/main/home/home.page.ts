@@ -141,8 +141,8 @@ async getUsersInfo() {
 
   async confirmDeleteProduct(product: Product) {
     this.utilsSvc.presentAlert({
-      header: 'Eliminar producto',
-      message: '¿Estás seguro de que deseas eliminar este producto?',
+      header: 'Eliminar Foto',
+      message: '¿Estás seguro de que deseas eliminar esta?',
       mode: 'ios',
       buttons: [
         {
@@ -175,7 +175,7 @@ async getUsersInfo() {
         this.products = this.products.filter((p) => p.id !== product.id);
         this.filterProducts(); // Recarga los productos filtrados
         this.utilsSvc.presentToast({
-          message: 'Producto eliminado exitosamente',
+          message: 'Foto eliminada exitosamente',
           duration: 1500,
           color: 'success',
           position: 'middle',
@@ -185,7 +185,7 @@ async getUsersInfo() {
       .catch((error) => {
         console.log(error);
         this.utilsSvc.presentToast({
-          message: 'Error al eliminar el producto',
+          message: 'Error al eliminar la foto',
           duration: 1500,
           color: 'danger',
           position: 'middle',
