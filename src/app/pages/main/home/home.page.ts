@@ -142,7 +142,7 @@ async getUsersInfo() {
   async confirmDeleteProduct(product: Product) {
     this.utilsSvc.presentAlert({
       header: 'Eliminar Foto',
-      message: '¿Estás seguro de que deseas eliminar esta?',
+      message: '¿Estás seguro de que deseas eliminar esta foto?',
       mode: 'ios',
       buttons: [
         {
