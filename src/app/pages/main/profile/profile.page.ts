@@ -12,12 +12,14 @@ export class ProfilePage implements OnInit {
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
+
   ngOnInit() {}
 
   // ====== Obtener Usuario =====
   user(): User {
     return this.utilsSvc.getFromLocalStorage('user');
   }
+
 
   //===Tomar/Seleccionar Imagen ===
 
